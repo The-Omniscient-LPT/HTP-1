@@ -1,5 +1,5 @@
 module registers #(
-    parameter size = 32,
+    parameter width = 32,
     parameter addrsize = 5
 ) (
     input clk,
