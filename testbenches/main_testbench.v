@@ -21,9 +21,9 @@ module main_testbench();
     
     initial begin
 
-        $dumpfile("extension_waveforms.vcd");
+        $dumpfile("main_testbench.vcd");
 
-        $dumpvars(0, TB_Top);
+        $dumpvars(0, main_testbench);
 
         #150000
 
