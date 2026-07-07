@@ -1,3 +1,5 @@
+// one alu top services both threads
+
 module alu_top #(
     parameter width = 32, parameter sreg_width = 32, mode_select_size = 5,
 )(
@@ -115,6 +117,7 @@ end
 
 full_adder adder(.a(adder_a), .b(adder_b), .c_in(c_in), .s(adder_o), .c_out(c_out));
 // generate sreg
+
 status_register sreg(.op_1(op_1), .op_2(op_2), .s_o(s_o), .c_in(c_in), .c_out(c_out), .sreg(sreg));
 
 // consider outputting during bus low, removes a signal driving
