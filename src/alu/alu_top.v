@@ -117,6 +117,7 @@ full_adder adder(.a(adder_a), .b(adder_b), .c_in(c_in), .s(adder_o), .c_out(c_ou
 // generate sreg
 status_register sreg(.op_1(op_1), .op_2(op_2), .s_o(s_o), .c_in(c_in), .c_out(c_out), .sreg(sreg));
 
+// consider outputting during bus low, removes a signal driving
 assign bus_out = (bus_out_ctl == 1'b1) ? bus_out_internal : {width{1'bz}};
 
 endmodule
