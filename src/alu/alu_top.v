@@ -56,40 +56,44 @@ always @(op_1, op_2, mode_select) begin // TODO: reassess the always triggers
             s_o = adder_o;
         end
 
-        4'b001: begin // SUB
+        4'b0001: begin // SUB
             c_in = 1'b1;
             adder_b = ~op_2_i;
             s_o = adder_o;
         end
 
-        4'b010: begin // AND
+        4'b0010: begin // AND
             s_o = op_1 & op_2_i;
         end
 
-        4'b011: begin // OR
+        4'b0011: begin // OR
             s_o = op_1 | op_2_i;
         end
 
-        4'b100: begin // NOT
+        4'b0100: begin // NOT
             s_o = ~op_1;
         end
 
-        4'b101: begin // LSL
+        4'b0101: begin // LSL
             s_o = op_1 << 1;
         end
 
-        4'b110: begin // INC
+        4'b0110: begin // INC
             c_in = 1'b1;
             adder_b = {N{1'b0}};
             s_o = adder_o;
         end
 
-        4'b111: begin // DEC
+        4'b0111: begin // DEC
             c_in = 1'b0;
             adder_b = {N{1'b1}};
             s_o = adder_o;
         end
 
+        4'b1000: begin // mov
+            bitwise_o = op_2
+        end
+        
         default: begin
             s_o = {N{1'b0}};
         end
